@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NumCheck — identifie l'opérateur d'origine d'un numéro mobile français.">
+  <title>NumCheck — Vérification opérateur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="glow glow-one"></div>
+  <div class="glow glow-two"></div>
+
+  <header class="navbar">
+    <a class="brand" href="#">
+      <span class="brand-icon">N</span>
+      <span>Num<span>Check</span></span>
+    </a>
+    <nav>
+      <a href="#checker">Vérifier</a>
+      <a href="#features">Fonctionnalités</a>
+      <a href="#discord">Discord</a>
+    </nav>
+    <a class="nav-button" href="#checker">Commencer</a>
+  </header>
+
+  <main>
+    <section class="hero" id="checker">
+      <div class="badge"><span class="pulse"></span> Vérification mobile française</div>
+      <h1>Quel est l’opérateur<br><span>de ce numéro ?</span></h1>
+      <p class="hero-text">
+        Entre un numéro mobile français et obtiens instantanément
+        son opérateur d’origine estimé.
+      </p>
+
+      <div class="checker-card">
+        <div class="input-wrap">
+          <span class="country">🇫🇷 +33</span>
+          <input id="phoneInput" type="tel" inputmode="tel"
+                 autocomplete="off"
+                 placeholder="6 12 34 56 78"
+                 maxlength="20">
+          <button id="checkButton" type="button">
+            <span>Vérifier</span>
+            <span class="arrow">→</span>
+          </button>
+        </div>
+        <p class="hint">Exemple : 06 12 34 56 78 · +33 6 12 34 56 78</p>
+
+        <div id="result" class="result hidden" aria-live="polite">
+          <div class="result-icon">📱</div>
+          <div class="result-content">
+            <div class="result-label">Opérateur d’origine estimé</div>
+            <div id="operatorName" class="operator-name">—</div>
+            <div id="normalizedNumber" class="normalized-number">—</div>
+          </div>
+          <div id="resultBadge" class="result-badge">—</div>
+        </div>
+
+        <div id="error" class="error hidden" aria-live="polite"></div>
+      </div>
+
+      <p class="disclaimer">
+        ⚠️ Un numéro peut avoir été porté vers un autre opérateur.
+        Le résultat d’une recherche par préfixe n’est donc pas une garantie de l’opérateur actuel.
+      </p>
+    </section>
+
+    <section class="features" id="features">
+      <div class="section-heading">
+        <span class="eyebrow">SIMPLE. RAPIDE. PROPRE.</span>
+        <h2>Tout ce qu’il faut, rien de plus.</h2>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Instantané</h3>
+          <p>Une interface légère pensée pour afficher le résultat rapidement.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🇫🇷</div>
+          <h3>Numéros français</h3>
+          <p>Détection des formats mobiles français en 06, 07, +33 et 0033.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>Compatible Discord</h3>
+          <p>Intègre NumCheck à ton serveur Discord et vérifie les numéros directement depuis un salon dédié.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="discord-section" id="discord">
+      <div class="discord-copy">
+        <span class="eyebrow">TON BOT, TON SERVEUR</span>
+        <h2>NumCheck fonctionne aussi directement sur Discord.</h2>
+        <p>
+          Configure un salon dédié et ton bot peut détecter automatiquement
+          les numéros envoyés, puis afficher le résultat.
+        </p>
+        <a class="discord-button" href="#" id="discordButton">Ajouter le bot à Discord <span>↗</span></a>
+      </div>
+      <div class="discord-preview">
+        <div class="preview-top">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="preview-title"># verification</span>
+        </div>
+        <div class="message user-message">
+          <div class="avatar user-avatar">U</div>
+          <div><strong>Utilisateur</strong><small>06 12 34 56 78</small></div>
+        </div>
+        <div class="message bot-message">
+          <div class="avatar bot-avatar">N</div>
+          <div>
+            <strong>NumCheck <span class="bot-tag">BOT</span></strong>
+            <div class="mini-embed">
+              <div class="mini-title">📱 Numéro détecté</div>
+              <div class="mini-line"><span>Numéro</span><b>06 12 34 56 78</b></div>
+              <div class="mini-line"><span>Opérateur d’origine</span><b>Orange</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand"><span class="brand-icon">N</span><span>Num<span>Check</span></span></div>
+    <p>© <span id="year"></span> NumCheck · Projet personnel</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
